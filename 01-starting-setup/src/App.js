@@ -1,4 +1,6 @@
-import Expenses from "./components/Expenses";
+import React from "react";
+import Expenses from "./components/Expenses/Expenses";
+import NewExpense from "./components/NewExpense/NewExpense";
 
 function App() {
   const expenses = [
@@ -26,9 +28,19 @@ function App() {
   // const para = document.createElement('p');
   // para.textContent = 'This is also visible!';
   // document.getElementById('root').append(para);
+
+  // JSX 코드가 사실은 아래와 같음
+  // return React.createElement('div', {}, React.createElement('h2', {}, 'Lets get started!'),
+  //   React.createElement(Expenses, {tiems: expenses} )
+  //   );
+  const addExpenseHandler = expense => {
+    console.log('in App.js');
+    console.log(expense);
+  }
+
   return (
     <div>
-      <h2>Let's get started!</h2>
+      <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items= {expenses}/>
 
     </div>
